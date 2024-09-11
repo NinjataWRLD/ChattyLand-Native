@@ -2,8 +2,24 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import { useEffect, useState } from 'react';
+import getMessages from '../operations/read';
+
+interface Chat {
+  content: string
+}
 
 export default function TabOneScreen() {
+  const [chat, setChat]: [Chat[], Function] = useState([]);
+
+  useEffect(() => {
+    getMessages("-O5p8Ac_GXcVJYw5P8nj", setChat);
+  }, []);
+
+  useEffect(() => {
+    console.log(chat);
+  }, [chat]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
