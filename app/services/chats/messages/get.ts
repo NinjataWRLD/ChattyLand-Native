@@ -1,7 +1,7 @@
 import { ref, onValue } from 'firebase/database';
-import { database } from '../firebase';
+import { database } from '@/app/firebase';
 
-export default function getMessages(chatId: string, setChat: Function) {
+export default (chatId: string, setChat: Function) => {
     const messagesRef = ref(database, `messages/${chatId}`);
 
     onValue(messagesRef, (snapshot) => {

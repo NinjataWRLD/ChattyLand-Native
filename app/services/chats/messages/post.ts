@@ -1,5 +1,5 @@
 import { ref, set, push } from 'firebase/database';
-import { database } from '../firebase';
+import { database } from '@/app/firebase';
 
 export default async (chatId: string, { sender, message }: { sender: string, message: string }) => {
   const messages = ref(database, `messages/${chatId}`);
